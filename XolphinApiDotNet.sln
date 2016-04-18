@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XolphinApiDotNet", "XolphinApiDotNet\XolphinApiDotNet.csproj", "{B67F7FA1-7638-483A-AA4A-7A1ACBB1F18C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B67F7FA1-7638-483A-AA4A-7A1ACBB1F18C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B67F7FA1-7638-483A-AA4A-7A1ACBB1F18C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B67F7FA1-7638-483A-AA4A-7A1ACBB1F18C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B67F7FA1-7638-483A-AA4A-7A1ACBB1F18C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
