@@ -119,27 +119,19 @@ namespace XolphinApiDotNet
             return response.Data;
         }
 
-        private class DownloadResult
-        {
-            public byte[] Data { get; set; }
-
-            public string Message { get; set; }
-        }
-
         private byte[] ExecuteDownload(RestRequest request)
         {
             var client = PrepareClient(_userName, _password, BASE_URI, VERSION);
             var response = client.Execute(request);
 
-            var result = JsonConvert.DeserializeObject<DownloadResult>(response.Content);
-
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                return result.Data;
+                return response.RawBytes;
             }
             else
             {
-                throw new ApplicationException(result.Message);
+                var result = JsonConvert.DeserializeObject<Base>(response.Content);
+                throw new ApplicationException(result.message);
             }
         }
 
