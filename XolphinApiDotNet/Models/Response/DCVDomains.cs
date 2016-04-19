@@ -1,6 +1,6 @@
 ﻿namespace XolphinApiDotNet.Models.Response
 {
-    public class DcvDomains
+    public class DCVDomains
     {
         public string domain { get; set; }
         public bool status { get; set; }

@@ -2,11 +2,11 @@
 
 namespace XolphinApiDotNet.Models.Response
 {
-    public class Dcv
+    public class DCV
     {
         public bool status { get; set; }
         public int statusDetail { get; set; }
         public string statusMessage { get; set; }
-        public List<DcvDomains> domains { get; set; }
+        public List<DCVDomains> domains { get; set; }
     }
 }

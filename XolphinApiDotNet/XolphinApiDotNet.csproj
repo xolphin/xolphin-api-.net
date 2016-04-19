@@ -53,8 +53,8 @@
     <Compile Include="Endpoint\Support.cs" />
     <Compile Include="Models\DCVType.cs" />
     <Compile Include="Models\Format.cs" />
-    <Compile Include="Models\Response\DcvDomains.cs" />
-    <Compile Include="Models\Response\Dcv.cs" />
+    <Compile Include="Models\Response\DCVDomains.cs" />
+    <Compile Include="Models\Response\DCV.cs" />
     <Compile Include="Models\Response\RequestValidation.cs" />
     <Compile Include="Requests\CancelSettings.cs" />
     <Compile Include="Requests\DCV.cs" />
