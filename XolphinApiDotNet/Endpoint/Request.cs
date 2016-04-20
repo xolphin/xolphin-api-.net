@@ -18,16 +18,16 @@ namespace XolphinApiDotNet.Endpoint
         {
             IEnumerable<Responses.Request> requests = new List<Responses.Request>();
 
-            var result = client.Get<Responses.Requests>("requests", "page", 1, ParameterType.QueryString);
+            var result = client.Get<Responses.AllRequests>("requests", "page", 1, ParameterType.QueryString);
 
             if (!result.isError())
             {
-                requests = result.requests;
-                while (result.page < result.pages)
+                requests = result.Requests;
+                while (result.Page < result.Pages)
                 {
-                    result = client.Get<Responses.Requests>("requests", "page", result.page + 1, ParameterType.QueryString);
+                    result = client.Get<Responses.AllRequests>("requests", "page", result.Page + 1, ParameterType.QueryString);
                     if (result.isError()) break;
-                    requests = requests.Union(result.requests);
+                    requests = requests.Union(result.Requests);
                 }
             }
 

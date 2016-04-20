@@ -6,11 +6,11 @@ namespace XolphinApiDotNet.Requests
 {
     public class Request
     {
-        public int product { get; private set; }
-        public int years { get; private set; }
-        public string csr { get; private set; }
+        public int Product { get; private set; }
+        public int Years { get; private set; }
+        public string CSR { get; private set; }
         private DCVType _dcvType;
-        public string dcvType
+        public string DCVType
         {
             get
             {
@@ -18,31 +18,31 @@ namespace XolphinApiDotNet.Requests
             }
         }
         private List<string> _subjectAlternativeNames;
-        public string subjectAlternativeNames
+        public string SubjectAlternativeNames
         {
             get
             {
                 return (_subjectAlternativeNames != null) ? string.Join(",", _subjectAlternativeNames) : String.Empty;
             }
         }
-        public List<RequestDCV> dcv { get; set; }
-        public string company { get; set; }
-        public string department { get; set; }
-        public string address { get; set; }
-        public string zipcode { get; set; }
-        public string city { get; set; }
-        public string approverFirstName { get; set; }
-        public string approverLastName { get; set; }
-        public string approverEmail { get; set; }
-        private string approverPhone { get; set; }
-        public string kvk { get; set; }
-        public string reference { get; set; }
+        public List<RequestDCV> DCV { get; set; }
+        public string Company { get; set; }
+        public string Department { get; set; }
+        public string Address { get; set; }
+        public string Zipcode { get; set; }
+        public string City { get; set; }
+        public string ApproverFirstName { get; set; }
+        public string ApproverLastName { get; set; }
+        public string ApproverEmail { get; set; }
+        public string ApproverPhone { get; set; }
+        public string KVK { get; set; }
+        public string Reference { get; set; }
 
         public Request(int product, int years, string csr, DCVType dcvType) 
         {
-            this.product = product;
-            this.years = years;
-            this.csr = csr;
+            Product = product;
+            Years = years;
+            CSR = csr;
 
             _dcvType = dcvType;
 
@@ -57,73 +57,73 @@ namespace XolphinApiDotNet.Requests
 
         public Request AddDcv(RequestDCV dcv)
         {
-            this.dcv.Add(dcv);
+            DCV.Add(dcv);
             return this;
         }
 
         public Request SetCompany(string company)
         {
-            this.company = company;
+            Company = company;
             return this;
         }
 
         public Request SetDepartment(string department)
         {
-            this.department = department;
+            Department = department;
             return this;
         }
 
         public Request SetAddress(string address)
         {
-            this.address = address;
+            Address = address;
             return this;
         }
 
         public Request SetZipcode(string zipcode)
         {
-            this.zipcode = zipcode;
+            Zipcode = zipcode;
             return this;
         }
 
         public Request SetСity(string city)
         {
-            this.city = city;
+            City = city;
             return this;
         }
 
         public Request SetApproverFirstName(string approverFirstName)
         {
-            this.approverFirstName = approverFirstName;
+            ApproverFirstName = approverFirstName;
             return this;
         }
 
         public Request SetApproverLastName(string approverLastName)
         {
-            this.approverLastName = approverLastName;
+            ApproverLastName = approverLastName;
             return this;
         }
 
         public Request SetApproverEmail(string approverEmail)
         {
-            this.approverEmail = approverEmail;
+            ApproverEmail = approverEmail;
             return this;
         }
 
         public Request SetApproverPhone(string approverPhone)
         {
-            this.approverPhone = approverPhone;
+            ApproverPhone = approverPhone;
             return this;
         }
 
         public Request SetKvk(string kvk)
         {
-            this.kvk = kvk;
+            KVK = kvk;
             return this;
         }
 
         public Request SetReference(string reference)
         {
-            this.reference = reference;
+            Reference = reference;
             return this;
         }
     }

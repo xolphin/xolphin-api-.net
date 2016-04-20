@@ -4,15 +4,15 @@ namespace XolphinApiDotNet.Requests
 {
     public class DCV
     {
-        public string domain { get; private set; }
-        public DCVType dcvType { get; private set; }
-        public string email { get; private set; }
+        public string Domain { get; private set; }
+        public DCVType DCVType { get; private set; }
+        public string Email { get; private set; }
 
         public DCV(string domain, DCVType dcvType, string email)
         {
-            this.domain = domain;
-            this.dcvType = dcvType;
-            this.email = email;
+            Domain = domain;
+            DCVType = dcvType;
+            Email = email;
         }
     }
 }

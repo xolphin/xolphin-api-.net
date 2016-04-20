@@ -18,16 +18,16 @@ namespace XolphinApiDotNet.Endpoint
         {
             IEnumerable<Responses.Certificate> certificates = new List<Responses.Certificate>();
 
-            var result = client.Get<Responses.Certificates>("certificates", "page", 1, ParameterType.QueryString);
+            var result = client.Get<Responses.AllCertificates>("certificates", "page", 1, ParameterType.QueryString);
 
             if (!result.isError())
             {
-                certificates = result.certificates;
-                while (result.page < result.pages)
+                certificates = result.Certificates;
+                while (result.Page < result.Pages)
                 {
-                    result = client.Get<Responses.Certificates>("certificates", "page", result.page + 1, ParameterType.QueryString);
+                    result = client.Get<Responses.AllCertificates>("certificates", "page", result.Page + 1, ParameterType.QueryString);
                     if (result.isError()) break;
-                    certificates = certificates.Union(result.certificates);
+                    certificates = certificates.Union(result.Certificates);
                 }
             }
 

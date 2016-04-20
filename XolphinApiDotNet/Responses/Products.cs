@@ -2,9 +2,9 @@
 
 namespace XolphinApiDotNet.Responses
 {
-    public class Products : Base
+    internal class AllProducts : Base
     {
-        public IEnumerable<Product> products
+        public IEnumerable<Product> Products
         {
             get
             {

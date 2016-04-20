@@ -4,13 +4,13 @@ namespace XolphinApiDotNet.Responses
 {
     public class Product : Base
     {
-        public int id { get; set; }
-        public string brand { get; set; }
-        public string name { get; set; }
-        public string type { get; set; }
-        public string validation { get; set; }
-        public int includeDomains { get; set; }
-        public int maxDomains { get; set; }
-        public List<ProductPrice> prices { get; set; }
+        public int Id { get; set; }
+        public string Brand { get; set; }
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Validation { get; set; }
+        public int IncludeDomains { get; set; }
+        public int MaxDomains { get; set; }
+        public List<ProductPrice> Prices { get; set; }
     }
 }

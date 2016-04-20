@@ -75,6 +75,7 @@
     <Compile Include="Responses\Request.cs" />
     <Compile Include="Responses\Requests.cs" />
     <Compile Include="Responses\RequestValidationDomain.cs" />
+    <Compile Include="Serializers\PropertySerializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

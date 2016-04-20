@@ -4,9 +4,9 @@ namespace XolphinApiDotNet.Models.Response
 {
     public class DCV
     {
-        public bool status { get; set; }
-        public int statusDetail { get; set; }
-        public string statusMessage { get; set; }
-        public List<DCVDomains> domains { get; set; }
+        public bool Status { get; set; }
+        public int StatusDetail { get; set; }
+        public string StatusMessage { get; set; }
+        public List<DCVDomains> Domains { get; set; }
     }
 }

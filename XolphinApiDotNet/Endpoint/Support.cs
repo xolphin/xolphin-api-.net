@@ -27,16 +27,16 @@ namespace XolphinApiDotNet.Endpoint
         {
             IEnumerable<Responses.Product> products = new List<Responses.Product>();
 
-            var result = client.Get<Responses.Products>("products", "page", 1, ParameterType.QueryString);
+            var result = client.Get<Responses.AllProducts>("products", "page", 1, ParameterType.QueryString);
 
             if (!result.isError())
             {
-                products = result.products;
-                while (result.page < result.pages)
+                products = result.Products;
+                while (result.Page < result.Pages)
                 {
-                    result = client.Get<Responses.Products>("products", "page", result.page + 1, ParameterType.QueryString);
+                    result = client.Get<Responses.AllProducts>("products", "page", result.Page + 1, ParameterType.QueryString);
                     if (result.isError()) break;
-                    products = products.Union(result.products);
+                    products = products.Union(result.Products);
                 }
             }
 

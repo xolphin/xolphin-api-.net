@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using XolphinApiDotNet.Models;
 using XolphinApiDotNet.Responses;
+using XolphinApiDotNet.Serializers;
 
 namespace XolphinApiDotNet
 {
@@ -36,6 +37,7 @@ namespace XolphinApiDotNet
         internal T PostBody<T>(string method, object param) where T : Base, new()
         {
             var request = PreparePost(method);
+            request.JsonSerializer = new PropertySerializer();
             request.AddBody(param);
 
             return Execute<T>(request);
@@ -52,7 +54,8 @@ namespace XolphinApiDotNet
         internal T PostFile<T>(string method, Requests.UploadDocument document) where T : Base, new()
         {
             var request = PreparePost(method);
-            request.Files.Add(FileParameter.Create("document", document.document, "document.pdf", "application/pdf"));
+            request.Files.Add(FileParameter.Create("document", document.Document, "document.pdf", "application/pdf"));
+            request.AddParameter("description", document.Description);
 
             return Execute<T>(request);
         }
@@ -100,10 +103,10 @@ namespace XolphinApiDotNet
                 {
                     StringBuilder message = new StringBuilder();
 
-                    message.AppendLine(responseBase.message);
-                    if (responseBase.errors != null)
+                    message.AppendLine(responseBase.Message);
+                    if (responseBase.Errors != null)
                     {
-                        foreach (var error in responseBase.errors)
+                        foreach (var error in responseBase.Errors)
                         {
                             message.AppendLine(error.Key);
                             foreach (var errorInternal in error.Value)
@@ -131,7 +134,7 @@ namespace XolphinApiDotNet
             else
             {
                 var result = JsonConvert.DeserializeObject<Base>(response.Content);
-                throw new ApplicationException(result.message);
+                throw new ApplicationException(result.Message);
             }
         }
 

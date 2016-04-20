@@ -2,9 +2,9 @@
 {
     public class ProductPrice
     {
-        public int years { get; set; }
-        public decimal price { get; set; }
-        public decimal priceExtra { get; set; }
-        public decimal priceExtraWildcard { get; set; }
+        public int Years { get; set; }
+        public decimal Price { get; set; }
+        public decimal PriceExtra { get; set; }
+        public decimal PriceExtraWildcard { get; set; }
     }
 }

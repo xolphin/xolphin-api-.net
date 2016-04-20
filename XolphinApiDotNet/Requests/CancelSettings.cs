@@ -2,18 +2,17 @@
 {
     public class CancelSettings
     {
-        public bool revoke { get; set; }
-
-        public string reason { get; private set; }
+        public bool Revoke { get; set; }
+        public string Reason { get; private set; }
 
         public CancelSettings(string reason)
         {
-            this.reason = reason;
+            Reason = reason;
         }
 
         public CancelSettings SetRevoke(bool revoke)
         {
-            this.revoke = revoke;
+            Revoke = revoke;
             return this;
         }
     }

@@ -2,9 +2,9 @@
 
 namespace XolphinApiDotNet.Responses
 {
-    public class Requests : Base
+    internal class AllRequests : Base
     {
-        public IEnumerable<Request> requests 
+        public IEnumerable<Request> Requests 
         {
             get
             {

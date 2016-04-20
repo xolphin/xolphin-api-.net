@@ -6,27 +6,27 @@ namespace XolphinApiDotNet.Responses
 {
     public class Request : Base
     {
-        public int id { get; set; }
-        public string domainName { get; set; }
-        public string company { get; set; }
-        public DateTime dateOrdered { get; set; }
-        public RequestValidation validations { get; set; }
-        public List<string> subjectAlternativeNames { get; set; }
-        public int years { get; set; }
-        public string department { get; set; }
-        public string address { get; set; }
-        public string zipcode { get; set; }
-        public string city { get; set; }
-        public string province { get; set; }
-        public string country { get; set; }
-        public string reference { get; set; }
-        public string approverFirstName { get; set; }
-        public string approverLastName { get; set; }
-        public string approverEmail { get; set; }
-        public string approverPhone { get; set; }
-        public string postbox { get; set; }
-        public string kvk { get; set; }
-        public Product product 
+        public int Id { get; set; }
+        public string DomainName { get; set; }
+        public string Company { get; set; }
+        public DateTime DateOrdered { get; set; }
+        public RequestValidation Validations { get; set; }
+        public List<string> SubjectAlternativeNames { get; set; }
+        public int Years { get; set; }
+        public string Department { get; set; }
+        public string Address { get; set; }
+        public string Zipcode { get; set; }
+        public string City { get; set; }
+        public string Province { get; set; }
+        public string Country { get; set; }
+        public string Reference { get; set; }
+        public string ApproverFirstName { get; set; }
+        public string ApproverLastName { get; set; }
+        public string ApproverEmail { get; set; }
+        public string ApproverPhone { get; set; }
+        public string Postbox { get; set; }
+        public string KVK { get; set; }
+        public Product Product 
         {
             get
             {

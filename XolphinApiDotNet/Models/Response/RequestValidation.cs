@@ -2,6 +2,6 @@
 {
     public class RequestValidation
     {
-        public DCV dcv { get; set; }
+        public DCV DCV { get; set; }
     }
 }

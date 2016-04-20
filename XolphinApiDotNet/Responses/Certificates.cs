@@ -2,9 +2,9 @@
 
 namespace XolphinApiDotNet.Responses
 {
-    public class Certificates : Base
+    internal class AllCertificates : Base
     {
-        public IEnumerable<Certificate> certificates
+        public IEnumerable<Certificate> Certificates
         {
             get
             {

@@ -2,11 +2,11 @@
 {
     public class DCVDomains
     {
-        public string domain { get; set; }
-        public bool status { get; set; }
-        public int statusDetail { get; set; }
-        public string statusMessage { get; set; }
-        public DCVType dcvType { get; set; }
-        public string dcvEmail { get; set; }
+        public string Domain { get; set; }
+        public bool Status { get; set; }
+        public int StatusDetail { get; set; }
+        public string StatusMessage { get; set; }
+        public DCVType DCVType { get; set; }
+        public string DCVEmail { get; set; }
     }
 }
