@@ -9,7 +9,7 @@ namespace XolphinApiDotNet.Responses
         public string DomainName { get; set; }
         public List<string> SubjectAlternativeNames { get; set; }
         public DateTime DateIssued { get; set; }
-        public DateTime DdateExpired { get; set; }
+        public DateTime DateExpired { get; set; }
         public string Company { get; set; }
         public string CustomerId { get; set; }
         public Product Product
