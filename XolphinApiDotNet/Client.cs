@@ -54,7 +54,7 @@ namespace XolphinApiDotNet
         internal T PostFile<T>(string method, Requests.UploadDocument document) where T : Base, new()
         {
             var request = PreparePost(method);
-            request.Files.Add(FileParameter.Create("document", document.Document, "document.pdf", "application/pdf"));
+            request.Files.Add(FileParameter.Create("document", document.Document, document.Name, "application/pdf"));
             request.AddParameter("description", document.Description);
 
             return Execute<T>(request);

@@ -2,11 +2,13 @@
 {
     public class UploadDocument
     {
+        public string Name { get; private set; }
         public byte[] Document { get; private set; }
         public string Description { get; set; }
 
-        public UploadDocument(byte[] document)
+        public UploadDocument(string name, byte[] document)
         {
+            Name = name;
             Document = document;
         }
 
