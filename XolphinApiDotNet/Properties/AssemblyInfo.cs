@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("XolphinApiDotNet")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("XolphinApiDotNet provides an easy way to interact with the Xolphin REST API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Xolphin")]
 [assembly: AssemblyProduct("XolphinApiDotNet")]
