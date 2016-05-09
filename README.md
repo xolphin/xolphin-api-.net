@@ -1,5 +1,10 @@
 # Xolphin API wrapper for C&#35;
 XolphinApiDotNet is a client library targeting .NET 4.5 and above that provides an easy way to interact with the [Xolphin REST API](https://api.xolphin.com/docs/v1#/).
+
+## About Xolphin
+[Xolphin](https://www.xolphin.nl/) is the largest supplier of [SSL Certificates](https://www.sslcertificaten.nl) and [Digital Signatures](https://www.digitalehandtekeningen.nl) in the Netherlands. Xolphin has
+a professional team providing reliable support and rapid issuance of SSL Certificates at an affordable price from industry leading brands such as Comodo, GeoTrust, GlobalSign, Thawte and Symantec.
+
 ## Library installation
 There are 2 ways to use XolphinApiDotNet:
 - Install-package XolphinApiDotNet (via Nuget)
