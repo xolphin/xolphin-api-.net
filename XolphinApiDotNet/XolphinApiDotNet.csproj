@@ -51,12 +51,18 @@
     <Compile Include="Endpoint\Certificate.cs" />
     <Compile Include="Endpoint\Request.cs" />
     <Compile Include="Endpoint\Support.cs" />
+    <Compile Include="Example\RequestGet.cs" />
+    <Compile Include="Example\RequestGetNotes.cs" />
+    <Compile Include="Example\RequestSendComodoSA.cs" />
+    <Compile Include="Example\RequestSendNote.cs" />
     <Compile Include="Models\DCVType.cs" />
     <Compile Include="Models\Format.cs" />
     <Compile Include="Models\Response\DCVDomains.cs" />
     <Compile Include="Models\Response\DCV.cs" />
     <Compile Include="Models\Response\RequestValidation.cs" />
     <Compile Include="Requests\CancelSettings.cs" />
+    <Compile Include="Requests\ComodoSA.cs" />
+    <Compile Include="Requests\NoteSend.cs" />
     <Compile Include="Requests\DCV.cs" />
     <Compile Include="Models\Request\FormattedDateTime.cs" />
     <Compile Include="Requests\UploadDocument.cs" />
@@ -72,12 +78,15 @@
     <Compile Include="Responses\Product.cs" />
     <Compile Include="Responses\ProductPrice.cs" />
     <Compile Include="Responses\Products.cs" />
+    <Compile Include="Responses\Note.cs" />
     <Compile Include="Responses\Request.cs" />
+    <Compile Include="Responses\Notes.cs" />
     <Compile Include="Responses\Requests.cs" />
     <Compile Include="Responses\RequestValidationDomain.cs" />
     <Compile Include="Serializers\PropertySerializer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

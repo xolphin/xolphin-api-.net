@@ -26,6 +26,8 @@ namespace XolphinApiDotNet.Responses
         public string ApproverPhone { get; set; }
         public string Postbox { get; set; }
         public string KVK { get; set; }
+        public Boolean ActionRequired { get; set; }
+        public Boolean BrandValidation { get; set; }
         public Product Product 
         {
             get

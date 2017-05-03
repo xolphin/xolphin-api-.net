@@ -15,6 +15,13 @@ There are 2 ways to use XolphinApiDotNet:
 ```csharp
 var client = new Client("<username>", "<password>");
 ```
+
+### Test mode
+```csharp
+var client = new Client("fake_login@xolphin.api", "Sup3rSecre7P@s$w0rdForThe@p1");
+client.TestMode(true);
+```
+
 ### Calling conventions
 Most of the Requests classes have ability to assign the additional parameters of the request with 2 ways:
 ```csharp
@@ -51,6 +58,8 @@ if (products.Any())
         .SetСity("<city>")
         .SetCompany("<company>")
         .SetApproverEmail("<email>")
+        //currently available languages: en, de, fr, nl
+        .SetLanguage("en")
         .AddSubjectAlternativeName("test1.domain.com")
         .AddSubjectAlternativeName("test2.domain.com")
         .AddSubjectAlternativeName("test3.domain.com")
@@ -82,7 +91,11 @@ Console.WriteLine(retryDcvResponse.Message);
 #### Send Subscriber Agreement
 ```csharp
 // POST /requests/{id}/sa
-var subscribe = client.Request.Subscribe(1234, "email@domain.com");
+
+var comodoSA = new XolphinApiDotNet.Requests.ComodoSA("mail@example.com");
+//currently available languages: en, de, fr, nl
+comodoSA.SetLanguage("en");
+var subscribe = client.Request.SubscribeComodoSA(1234, comodoSA);
 Console.WriteLine(subscribe.Message);
 ```
 #### Schedule validation call
@@ -91,6 +104,23 @@ Console.WriteLine(subscribe.Message);
 var scheduleValidationCallResponse = client.Request.ScheduleValidationCall(1234, DateTime.Now);
 Console.WriteLine(scheduleValidationCallResponse.Message);
 ```
+#### Send note
+```csharp
+// POST /requests/{id}/notes
+var result = client.Request.SendNote(1234, new NoteSend("my message"));
+Console.WriteLine(result.SendNote);
+```
+
+#### Get notes
+```csharp
+// GET /requests/{id}/notes
+var result = client.Request.GetNotes(1234);
+foreach (Responses.Note note in result.Notes)
+{
+    Console.WriteLine(note.Message);
+}
+```
+
 ### Certificate operations
 #### Getting list of certificates
 ```csharp

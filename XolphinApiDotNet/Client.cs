@@ -13,15 +13,29 @@ namespace XolphinApiDotNet
     public class Client
     {
         const string BASE_URI = @"https://api.xolphin.com/v{0}/";
+        const string BASE_TEST_URI = @"https://test-api.xolphin.com/v{0}/";
         const int VERSION = 1;
 
         private string _userName;
         private string _password;
+        private string _uri;
 
         public Client(string userName, string password)
         {
             _userName = userName;
             _password = password;
+            _uri = BASE_URI;
+        }
+
+        public void TestMode(bool mode)
+        {
+            if (mode)
+            {
+                _uri = BASE_TEST_URI;
+            }else
+            {
+                _uri = BASE_URI;
+            }
         }
 
         internal T Get<T>(string method, string paramName, object paramValue, ParameterType paramType) where T : new()
@@ -74,7 +88,7 @@ namespace XolphinApiDotNet
             var client = new RestClient();
             client.BaseUrl = new Uri(string.Format(uri, version));
             client.Authenticator = new HttpBasicAuthenticator(userName, password);
-            client.UserAgent = "Xolphin .NET library v1.0";
+            client.UserAgent = "Xolphin .NET library v1.5.0";
             return client;
         }
 
@@ -89,7 +103,7 @@ namespace XolphinApiDotNet
 
         private T Execute<T>(RestRequest request) where T : new()
         {
-            var client = PrepareClient(_userName, _password, BASE_URI, VERSION);
+            var client = PrepareClient(_userName, _password, _uri, VERSION);
             var response = client.Execute<T>(request);
 
             if (response.ErrorException != null || response.StatusCode == HttpStatusCode.InternalServerError || response.StatusCode == HttpStatusCode.BadRequest || response.StatusCode == HttpStatusCode.NotFound)
@@ -125,7 +139,7 @@ namespace XolphinApiDotNet
 
         private byte[] ExecuteDownload(RestRequest request)
         {
-            var client = PrepareClient(_userName, _password, BASE_URI, VERSION);
+            var client = PrepareClient(_userName, _password, _uri, VERSION);
             var response = client.Execute(request);
 
             if (response.StatusCode == HttpStatusCode.OK)

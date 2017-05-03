@@ -37,6 +37,7 @@ namespace XolphinApiDotNet.Requests
         public string ApproverPhone { get; set; }
         public string KVK { get; set; }
         public string Reference { get; set; }
+        public string Language { get; set; }
 
         public Request(int product, int years, string csr, DCVType dcvType) 
         {
@@ -124,6 +125,12 @@ namespace XolphinApiDotNet.Requests
         public Request SetReference(string reference)
         {
             Reference = reference;
+            return this;
+        }
+
+        public Request SetLanguage(string language)
+        {
+            Language = language;
             return this;
         }
     }

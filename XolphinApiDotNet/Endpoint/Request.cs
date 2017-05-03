@@ -54,15 +54,31 @@ namespace XolphinApiDotNet.Endpoint
             return client.PostBody<Responses.Base>("requests/" + id + "/retry-dcv", dcv);
         }
 
-        public Responses.Base Subscribe(int id, string email)
+        [Obsolete("use SubscribeComodoSA instead")]
+        public Responses.Base Subscribe(int id, Requests.ComodoSA comodoSA)
         {
-            return client.PostSingle<Responses.Base>("requests/" + id + "/sa ", "email", email);
+            return client.PostBody<Responses.Base>("requests/" + id + "/sa ", comodoSA);
         }
 
         public Responses.Base ScheduleValidationCall(int id, DateTime dateTime)
         {
             var formattedDateTime = new Models.Request.FormattedDateTime(dateTime);
             return client.PostBody<Responses.Base>("requests/" + id + "/schedule-validation-call", formattedDateTime);
+        }
+
+        public Responses.AllNotes GetNotes(int id)
+        {
+            return client.Get<Responses.AllNotes>("requests/{id}/notes", "id", id, ParameterType.UrlSegment);
+        }
+
+        public Responses.Base SendNote(int id, Requests.NoteSend note)
+        {
+            return client.PostBody<Responses.Base>("requests/" + id + "/notes", note);
+        }
+
+        public Responses.Base SubscribeComodoSA(int id, Requests.ComodoSA comodoSA)
+        {
+            return client.PostBody<Responses.Base>("requests/" + id + "/sa", comodoSA);
         }
     }
 }
