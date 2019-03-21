@@ -38,6 +38,7 @@ namespace XolphinApiDotNet.Requests
         public string ApproverPhone { get; set; }
         public string KVK { get; set; }
         public string Reference { get; set; }
+        public string CertificateChainAlternative { get; set; }
 
         public Renew(int product, int years, string csr, DCVType dcvType)
         {
@@ -125,6 +126,12 @@ namespace XolphinApiDotNet.Requests
         public Renew SetReference(string reference)
         {
             Reference = reference;
+            return this;
+        }
+
+        public Renew SetCertificateChainAlternative(string certificateChainAlternative)
+        {
+            CertificateChainAlternative = certificateChainAlternative;
             return this;
         }
     }
