@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.6.2] - 2020-02-25
+### Fixed
+- Resolved issue #2
+
 ## [1.5.0] - 2017-03-22
 ### Added
 - Compatability with Xolphin REST Api v1.5.0

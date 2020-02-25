@@ -2,8 +2,8 @@
 {
     public enum DCVType
     {
-        Email,
-        File,
+        EMAIL,
+        FILE,
         DNS
     }
 }

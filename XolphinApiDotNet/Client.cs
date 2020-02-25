@@ -88,7 +88,7 @@ namespace XolphinApiDotNet
             var client = new RestClient();
             client.BaseUrl = new Uri(string.Format(uri, version));
             client.Authenticator = new HttpBasicAuthenticator(userName, password);
-            client.UserAgent = "Xolphin .NET library v1.6.0";
+            client.UserAgent = "Xolphin .NET library v1.6.2";
             return client;
         }
 
