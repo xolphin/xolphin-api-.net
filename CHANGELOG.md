@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2020-03-13
+### Fixed
+- Update RestSharp to 106.10.1 for TLS1.2
+
 ## [1.6.2] - 2020-02-25
 ### Fixed
 - Resolved issue #2
