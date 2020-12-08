@@ -1,6 +1,23 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.8.3] - 2020-12-02
+### Added
+- Added possibility of using custom user agent in construction
+
+## [1.8.2] - 2020-10-21
+### Added
+- Typo update
+
+## [1.8.1] - 2020-10-21
+### Added
+- ExtraPriceWildcard added
+- ExtraPrice added
+
+## [1.8.0] - 2020-10-21
+### Added
+- DateSubscriptionExpired added
+
 ## [1.7.0] - 2020-03-13
 ### Fixed
 - Update RestSharp to 106.10.1 for TLS1.2

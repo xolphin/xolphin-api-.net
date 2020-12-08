@@ -3,6 +3,7 @@ using RestSharp;
 using RestSharp.Authenticators;
 using System;
 using System.Net;
+using System.Reflection;
 using System.Text;
 using XolphinApiDotNet.Models;
 using XolphinApiDotNet.Responses;
@@ -18,12 +19,14 @@ namespace XolphinApiDotNet
 
         private string _userName;
         private string _password;
+        private string _customUserAgent;
         private string _uri;
 
-        public Client(string userName, string password)
+        public Client(string userName, string password, string customUserAgent = "Base")
         {
             _userName = userName;
             _password = password;
+            _customUserAgent = customUserAgent;
             _uri = BASE_URI;
         }
 
@@ -89,7 +92,7 @@ namespace XolphinApiDotNet
             client.BaseUrl = new Uri(string.Format(uri, version));
             client.Authenticator = new HttpBasicAuthenticator(userName, password);
 
-            client.UserAgent = "Xolphin .NET library v1.7.0";
+            client.UserAgent = "Xolphin .NET lib v" + Assembly.GetEntryAssembly().GetName().Version + "/" + _customUserAgent;
 
             return client;
         }
