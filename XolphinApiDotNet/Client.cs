@@ -2,6 +2,8 @@
 using RestSharp;
 using RestSharp.Authenticators;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Text;
@@ -60,6 +62,7 @@ namespace XolphinApiDotNet
             return Execute<T>(request);
         }
 
+      
         internal T PostSingle<T>(string method, string paramName, object paramValue) where T : Base, new()
         {
             var request = PreparePost(method);
@@ -67,6 +70,8 @@ namespace XolphinApiDotNet
 
             return Execute<T>(request);
         }
+
+
 
         internal T PostFile<T>(string method, Requests.UploadDocument document) where T : Base, new()
         {
@@ -92,8 +97,8 @@ namespace XolphinApiDotNet
             client.BaseUrl = new Uri(string.Format(uri, version));
             client.Authenticator = new HttpBasicAuthenticator(userName, password);
 
-            client.UserAgent = "Xolphin .NET lib v" + Assembly.GetEntryAssembly().GetName().Version + "/" + _customUserAgent;
-
+            client.UserAgent = "Xolphin .NET lib v1.8.4" + "/" + _customUserAgent;
+           
             return client;
         }
 
@@ -103,6 +108,7 @@ namespace XolphinApiDotNet
             request.Method = Method.POST;
             request.RequestFormat = DataFormat.Json;
             request.Resource = method;
+           
             return request;
         }
 

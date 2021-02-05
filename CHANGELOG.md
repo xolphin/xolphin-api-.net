@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.8.4] - 2021-02-05
+### Fixed
+- Bugfix in user agent generation
+
 ## [1.8.3] - 2020-12-02
 ### Added
 - Added possibility of using custom user agent in construction
