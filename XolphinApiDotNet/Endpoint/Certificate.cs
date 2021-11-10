@@ -1,4 +1,5 @@
 ﻿using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using XolphinApiDotNet.Models;
@@ -14,20 +15,58 @@ namespace XolphinApiDotNet.Endpoint
             this.client = client;
         }
 
-        public List<Responses.Certificate> All()
+        public List<Responses.Certificate> All(int batchSize=20)
         {
             IEnumerable<Responses.Certificate> certificates = new List<Responses.Certificate>();
 
-            var result = client.Get<Responses.AllCertificates>("certificates", "page", 1, ParameterType.QueryString);
+            var param = new Dictionary<string, object>();
+            param.Add("page", 1);
+            param.Add("limit", batchSize);
+
+
+            var result = client.Get<Responses.AllCertificates>("certificates", param, ParameterType.QueryString);
+            
 
             if (!result.isError())
             {
                 certificates = result.Certificates;
                 while (result.Page < result.Pages)
                 {
-                    result = client.Get<Responses.AllCertificates>("certificates", "page", result.Page + 1, ParameterType.QueryString);
+                    param["page"] = result.Page + 1;
+                    result = client.Get<Responses.AllCertificates>("certificates", param, ParameterType.QueryString);
                     if (result.isError()) break;
                     certificates = certificates.Union(result.Certificates);
+                }
+            }
+
+            return certificates.ToList();
+        }
+
+        public List<Responses.Certificate> GetRecent(TimeSpan maxAge, int batchSize=20)
+        {
+            var cutOffTime = DateTime.Now - maxAge;
+            IEnumerable<Responses.Certificate> certificates = new List<Responses.Certificate>();
+
+            var param = new Dictionary<string, object>();
+            param.Add("page", 1);
+            param.Add("limit", batchSize);
+
+
+            var result = client.Get<Responses.AllCertificates>("certificates", param, ParameterType.QueryString);
+            
+
+            if (!result.isError())
+            {
+                certificates = result.Certificates;
+                while (result.Page < result.Pages)
+                {
+                    param["page"] = result.Page + 1;
+                    result = client.Get<Responses.AllCertificates>("certificates", param, ParameterType.QueryString);
+                    if (result.isError()) break;
+                    certificates = certificates.Union(result.Certificates.Where( x => x.DateIssued >= cutOffTime ) );
+
+                    if (result.Certificates.Last().DateIssued < cutOffTime)
+                        break;
                 }
             }
 

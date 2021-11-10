@@ -53,6 +53,20 @@ namespace XolphinApiDotNet
             return Execute<T>(request);
         }
 
+        internal T Get<T>(string method, Dictionary<string,object> parameters, ParameterType paramType) where T : new()
+        {
+            var request = new RestRequest();
+            foreach ( var p in parameters)
+            {
+                request.AddParameter(p.Key, p.Value, paramType);
+            }
+            
+            request.Resource = method;
+            request.Method = Method.GET;
+
+            return Execute<T>(request);
+        }
+
         internal T PostBody<T>(string method, object param) where T : Base, new()
         {
             var request = PreparePost(method);
@@ -115,7 +129,7 @@ namespace XolphinApiDotNet
         private T Execute<T>(RestRequest request) where T : new()
         {
             var client = PrepareClient(_userName, _password, _uri, VERSION);
-            var response = client.Execute<T>(request);
+            var response = client.Execute<T>(request);            
 
             if (response.ErrorException != null || response.StatusCode == HttpStatusCode.InternalServerError || response.StatusCode == HttpStatusCode.BadRequest || response.StatusCode == HttpStatusCode.NotFound)
             {
