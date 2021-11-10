@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.8.5] - 2021-11-10
+### Fixed
+- Added Certificate.GetRecent() 
+
 ## [1.8.4] - 2021-02-05
 ### Fixed
 - Bugfix in user agent generation
