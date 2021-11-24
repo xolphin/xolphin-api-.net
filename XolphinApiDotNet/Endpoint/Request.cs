@@ -14,18 +14,23 @@ namespace XolphinApiDotNet.Endpoint
             this.client = client;
         }
 
-        public List<Responses.Request> All()
+        public List<Responses.Request> All(int batchSize=20)
         {
             IEnumerable<Responses.Request> requests = new List<Responses.Request>();
 
-            var result = client.Get<Responses.AllRequests>("requests", "page", 1, ParameterType.QueryString);
+            var param = new Dictionary<string, object>();
+            param.Add("page", 1);
+            param.Add("limit", batchSize);
+
+            var result = client.Get<Responses.AllRequests>("requests", param, ParameterType.QueryString);
 
             if (!result.isError())
             {
                 requests = result.Requests;
                 while (result.Page < result.Pages)
                 {
-                    result = client.Get<Responses.AllRequests>("requests", "page", result.Page + 1, ParameterType.QueryString);
+                    param["page"] = result.Page + 1;
+                    result = client.Get<Responses.AllRequests>("requests", "page", param, ParameterType.QueryString);
                     if (result.isError()) break;
                     requests = requests.Union(result.Requests);
                 }
