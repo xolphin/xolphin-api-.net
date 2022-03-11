@@ -39,6 +39,7 @@ namespace XolphinApiDotNet.Requests
         public string Reference { get; set; }
         public string CertificateChainAlternative { get; set; }
         public string Language { get; set; }
+        public bool DisableFreeSan { get; set; }
 
         public Request(int product, int years, string csr, DCVType dcvType) 
         {
@@ -138,6 +139,12 @@ namespace XolphinApiDotNet.Requests
         public Request SetLanguage(string language)
         {
             Language = language;
+            return this;
+        }
+
+        public Request SetDisableFreeSan(bool disableFreeSan)
+        {
+            DisableFreeSan = disableFreeSan;
             return this;
         }
     }
