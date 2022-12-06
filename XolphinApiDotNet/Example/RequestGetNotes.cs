@@ -10,8 +10,8 @@ namespace XolphinApiDotNet.Example
     {
         public RequestGetNotes()
         {
-            var client = new XolphinApiDotNet.Client("fake_login@xolphin.api", "Sup3rSecre7P@s$w0rdForThe@p1");
-            client.TestMode(true);
+            var client = new XolphinApiDotNet.Client("fake_login@xolphin.api", "Sup3rSecre7P@s$w0rdForThe@p1", testMode:true);
+
             var result = client.Request.GetNotes(960000000);
             foreach (Responses.Note note in result.Notes)
             {
