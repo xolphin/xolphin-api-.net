@@ -10,8 +10,7 @@ namespace XolphinApiDotNet.Example
     {
         public RequestGet()
         {
-            var client = new XolphinApiDotNet.Client("fake_login@xolphin.api", "Sup3rSecre7P@s$w0rdForThe@p1");
-            client.TestMode(true);
+            var client = new XolphinApiDotNet.Client("fake_login@xolphin.api", "Sup3rSecre7P@s$w0rdForThe@p1", testMode:true);
             var result = client.Request.Get(960000000);
             Console.WriteLine(result);
             Console.WriteLine(result.Validations);
