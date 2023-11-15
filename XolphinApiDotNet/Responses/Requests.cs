@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace XolphinApiDotNet.Responses
 {
@@ -8,7 +9,7 @@ namespace XolphinApiDotNet.Responses
         {
             get
             {
-                return GetEmbeddedEnumerable<Request>("requests");
+                return GetEmbeddedEnumerable<Request>("requests").ToArray();
             }
         }
     }

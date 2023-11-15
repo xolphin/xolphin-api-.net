@@ -1,7 +1,10 @@
-﻿using RestSharp;
+﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using XolphinApiDotNet.Requests;
+using XolphinApiDotNet.Models;
 
 namespace XolphinApiDotNet.Endpoint
 {
@@ -30,7 +33,7 @@ namespace XolphinApiDotNet.Endpoint
                 while (result.Page < result.Pages)
                 {
                     param["page"] = result.Page + 1;
-                    result = client.Get<Responses.AllRequests>("requests", "page", param, ParameterType.QueryString);
+                    result = client.Get<Responses.AllRequests>("requests", param, ParameterType.QueryString);
                     if (result.isError()) break;
                     requests = requests.Union(result.Requests);
                 }
@@ -65,10 +68,17 @@ namespace XolphinApiDotNet.Endpoint
             return client.PostBody<Responses.Base>("requests/" + id + "/sa ", comodoSA);
         }
 
-        public Responses.Base ScheduleValidationCall(int id, DateTime dateTime)
+        public Responses.Base ScheduleValidationCall(int id, DateTime dateTime,ValidationCall validationCall = null)
         {
             var formattedDateTime = new Models.Request.FormattedDateTime(dateTime);
-            return client.PostBody<Responses.Base>("requests/" + id + "/schedule-validation-call", formattedDateTime);
+            if (validationCall == null) 
+            {
+                validationCall = new XolphinApiDotNet.Requests.ValidationCall();
+            }
+            validationCall.SetId(id);
+            validationCall.SetDate(formattedDateTime.Date);
+            validationCall.SetTime(formattedDateTime.Time);
+            return client.PostBody<Responses.Base>("requests/" + id + "/schedule-validation-call", validationCall);
         }
 
         public Responses.AllNotes GetNotes(int id)

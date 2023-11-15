@@ -4,6 +4,7 @@
     {
         EMAIL,
         FILE,
-        DNS
+        DNS,
+        MIXED
     }
 }
