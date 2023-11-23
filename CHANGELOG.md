@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.8.7] - 2023-11-15
+## [1.8.8] - 2023-11-15
 ### Added
 - Country added to Request, Reissue, Renew objects
 - Province added to Reques, Reissue, Renewt objects
@@ -10,6 +10,9 @@ All notable changes to this project will be documented in this file.
 - ApproverRepresentativeEmail added to Request, Reissue, Renew objects
 - ApproverRepresentativePhone added to Request, Reissue, Renew objects
 - ApproverRepresentativePosition added to Request, Reissue, Renew objects
+
+## [1.8.7] - ?
+Data lost
 
 ### Fixed
 - Request DCVType reference 

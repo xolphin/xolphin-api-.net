@@ -33,8 +33,7 @@ namespace XolphinApiDotNet
             var options = new RestClientOptions()
             {
                 BaseUrl = new Uri(string.Format(uri, VERSION)),
-                UserAgent = "Xolphin .NET lib v1.8.7" + "/" + customUserAgent
-
+                UserAgent = "Xolphin .NET lib v1.8.8" + "/" + customUserAgent,
             };
 
             if (httpClient == null)
