@@ -51,9 +51,11 @@ if (products.Any())
     var productId = products.First().Id;
     // request certificate for 1 year
     var requestsRequest = new XolphinApiDotNet.Requests.Request(productId, 1, <csr_string>, DCVType.Email)
-        .SetApproverFirstName("<first_name>")
-        .SetApproverLastName("<last_name>")
-        .SetApproverPhone("+12345678901")
+        .SetApproverRepresentativeFirstName("<first_name>")
+        .SetApproverRepresentativeLastName("<last_name>")
+        .SetApproverRepresentativePhone("+12345678901")
+        .SetApproverRepresentativePosition("IT")
+        .SetApproverRepresentativeEmail("<email>")
         .SetZipcode("123456")
         .SetСity("<city>")
         .SetCompany("<company>")
@@ -76,6 +78,17 @@ if (products.Any())
 var responseRequest = client.Request.Get(1234);
 Console.WriteLine(responseRequest.Id);
 ```
+#### Getting all requests
+```csharp
+// GET /requests/
+var requests = client.Request.All();
+foreach (var request in requests)
+{
+    Console.WriteLine(request.Id);
+}
+```
+
+
 #### Upload new request document
 ```csharp
 // POST /requests/{id}/upload-document
@@ -101,7 +114,17 @@ Console.WriteLine(subscribe.Message);
 #### Schedule validation call
 ```csharp
 // POST /requests/{id}/schedule-validation-call
-var scheduleValidationCallResponse = client.Request.ScheduleValidationCall(1234, DateTime.Now);
+var requestsValidationCallDetails = new XolphinApiDotNet.Requests.ValidationCall()
+    .SetPhoneNumber("123465798")
+    .SetTimezone("Europe/Amsterdam")
+    .SetAction("Callback");
+
+var dateString = "11/24/2023 10:33:52 AM";
+
+DateTime date = DateTime.Parse(dateString,
+                          System.Globalization.CultureInfo.InvariantCulture);
+
+var scheduleValidationCallResponse = client.Request.ScheduleValidationCall(1234, date, requestsValidationCallDetails);
 Console.WriteLine(scheduleValidationCallResponse.Message);
 ```
 #### Send note

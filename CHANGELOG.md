@@ -1,6 +1,30 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.8.8] - 2023-11-15
+### Added
+- Country added to Request, Reissue, Renew objects
+- Province added to Reques, Reissue, Renewt objects
+- ApproverRepresentativeFirstName added to Request, Reissue, Renew objects
+- ApproverRepresentativeLastName added to Request, Reissue, Renew objects
+- ApproverRepresentativeEmail added to Request, Reissue, Renew objects
+- ApproverRepresentativePhone added to Request, Reissue, Renew objects
+- ApproverRepresentativePosition added to Request, Reissue, Renew objects
+
+## [1.8.7] - ?
+Data lost
+
+### Fixed
+- Request DCVType reference 
+- Added User Agent
+
+## [1.8.6] - 2022-01-19
+### Added
+- DisableFreeSan added to Request object
+
+### Fixed
+- Added Certificate.GetRecent() 
+
 ## [1.8.5] - 2021-11-10
 ### Fixed
 - Added Certificate.GetRecent() 
