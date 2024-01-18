@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.8.9] - 2024-01-18
+### Fixed
+- Certificate.Get() Date handling
+
 ## [1.8.8] - 2023-11-15
 ### Added
 - Country added to Request, Reissue, Renew objects
